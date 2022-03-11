@@ -37,19 +37,75 @@
                   alt="{{ image.alt | escape }}">
                  
               </a>
-              <svg  style="background-color: transparent;
-              position: absolute;
-              top: 0;
-              left: 0;"
-              viewBox="0 0 480 480"   >
-               <path id="curve" fill="transparent"  d="M65,272 C176,339 380,312 431,270" />
-               <text >
-                   <textPath text-anchor="middle" startOffset="50%" id="text_svg2" xlink:href="#curve">
-                       
-                   </textPath>
+              {% for collection in product.collections %}
+                    {% if collection.title == "Bracelets" %}
+                                  {% if product.tags contains "top_curve" %}
+                                      <svg  style="background-color: transparent;
+                                      position: absolute;
+                                      top: 0;
+                                      left: 0;"
+                                      viewBox="0 0 480 480"   >
+                                        <path id="curve" fill="transparent"  d="M88,194 C209,174 391,240 428,293" />
+                                        <text >
+                                            <textPath text-anchor="middle" startOffset="50%" id="text_svg2" xlink:href="#curve">
+                                                
+                                            </textPath>
+                        
+                                        </text>
+                                        </svg>
 
-               </text>
-           </svg>
+                                    {%elsif product.tags contains "down-curve-2" %}
+                                          <svg  style="background-color: transparent;
+                                          position: absolute;
+                                          top: 0;
+                                          left: 0;"
+                                          viewBox="0 0 480 480"   >
+                                            <path id="curve" fill="transparent"  d="M69,262 C197,336 389,299 416,261" />
+                                            <text >
+                                                <textPath text-anchor="middle" startOffset="50%" id="text_svg2" xlink:href="#curve">
+                                                    
+                                                </textPath>
+                            
+                                            </text>
+                                            </svg>
+
+                                    {% else %}
+                                            <svg  style="background-color: transparent;
+                                            position: absolute;
+                                            top: 0;
+                                            left: 0;"
+                                            viewBox="0 0 480 480"   >
+                                            <path id="curve" fill="transparent"  d="M65,272 C176,339 380,312 431,270" />
+                                            <text >
+                                                <textPath text-anchor="middle" startOffset="50%" id="text_svg2" xlink:href="#curve">
+                                                    
+                                                </textPath>
+                              
+                                            </text>
+                                            </svg>
+
+                                     {% endif %}
+
+                   {% elsif collection.title == "Watches" %}
+                                     <svg  style="background-color: transparent;
+                                               position: absolute;
+                                               top: 0;
+                                               left: 0;"
+                                               viewBox="0 0 480 480"   >
+                                               <path id="curve" fill="transparent"  d="M195,275 C212,275 248,275 275,275" />
+                                               <text fill="white" >
+                                                   <textPath  text-anchor="middle" startOffset="50%" id="text_svg2" xlink:href="#curve">
+                                                       
+                                                   </textPath>
+                                 
+                                               </text>
+                                               </svg>
+   
+
+                    {% endif %}
+                    
+              {% endfor %}
+              
             </div>
           {%- endfor -%}
           <noscript>
@@ -101,8 +157,11 @@
             <p class="product-single__vendor">{{ product.vendor }}</p>
           {% endif %}
 
-          <h1 itemprop="name" id="product_title" class="product-single__title">{{ product.title }}</h1>
+          <h1 itemprop="name" id="product_title" class="product-single__title">{{ product.title }}  </h1>
+         
 
+         
+        
           <ul class="product-single__meta-list list--no-bullets list--inline{% if cart.taxes_included or shop.shipping_policy.body != blank %} product-single__price-container{% endif %}">
             <li id="ProductSaleTag-{{ section.id }}" class="{% unless product.compare_at_price > product.price %}hide{% endunless %}">
               <div class="product-tag">
@@ -243,18 +302,37 @@
         <div class=per_block_left>
   <div id="container">
       <!-- <img id="image1" src="{{ featured_image | img_url: product_image_size  }}" alt=""> -->
-    
-         
-                  <svg style="background-image: url('{{ featured_image | img_url: product_image_size  }}');
-                  "  viewBox="0 0 480 480" id="svg1" >
-                    <path id="curve" fill="transparent"  d="M65,272 C176,339 380,312 431,270" />
-                    <text >
-                        <textPath text-anchor="middle" startOffset="50%" id="text_svg" xlink:href="#curve">
-                            
-                        </textPath>
+                  
+                    {% for collection in product.collections %}
+                        {% if collection.title =="Watches" %}
+                              <svg style="background-image: url('{{ featured_image | img_url: product_image_size  }}');
+                              "  viewBox="0 0 480 480" id="svg1" >
+                                
+                                <text  fill="white">
+                                    <textPath text-anchor="middle" startOffset="50%" id="text_svg" xlink:href="#curve">
+                                        
+                                    </textPath>
+            
+                                </text>
+                            </svg>
+                        {% else %}
 
-                    </text>
-                </svg>
+                                <svg style="background-image: url('{{ featured_image | img_url: product_image_size  }}');
+                                "  viewBox="0 0 480 480" id="svg1" >
+                                  
+                                  <text >
+                                      <textPath text-anchor="middle" startOffset="50%" id="text_svg" xlink:href="#curve">
+                                          
+                                      </textPath>
+              
+                                  </text>
+                              </svg>
+
+                        {% endif %}
+                  {% endfor %} 
+  
+
+                
          
   </div>
 </div>
@@ -262,25 +340,30 @@
       <div class=per_block_right>
           <div class=right_row>
               <div class=per_close>
+
                   <input id =close_block class = close_img type="image" name="close_button" src="{{ 'close.png' | asset_img_url: '300x' }}" alt="text">  
               </div>
           </div>
           <div class=right_row>
               <div class=per_title>
-                  <h1 class = product-single__title>Personalize your Product.</h3>
-                    {% for collection in product.collections %}
-
-                        {{product.collection}}
-
-                    {% endfor %}
+                  <h1 class = product-single__title>Personalize your Produc</h3>
+                   
               </div>
           </div>
           <div class=right_row>
-              
-          <input id="input1" type="text" maxlength="45" class="per_edit_text" oninput="writing()" >
-         
+
+           
+            {% for collection in product.collections %}
+                {% if collection.title =="Watches" %}
+                     <input id="input1" type="text" maxlength="10" class="per_edit_text" oninput="writing()" >
+                {% elsif collection.title == "Bracelets" %}
+
+                <input id="input1" type="text" maxlength="45" class="per_edit_text" oninput="writing()" >
+
+                {% endif %}
+
             
-              
+             {% endfor %} 
               
            
            

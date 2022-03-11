@@ -307,7 +307,12 @@
   textPath{
       font-size: 14px;
       font-weight: 500;
-      
+      color: white;
+      text-transform: uppercase;
+  }
+  #input1{
+    text-transform: uppercase;
+
   }
   
   
