@@ -355,10 +355,10 @@
            
             {% for collection in product.collections %}
                 {% if collection.title =="Watches" %}
-                     <input id="input1" type="text" maxlength="10" class="per_edit_text" oninput="writing()" >
-                {% elsif collection.title == "Bracelets" %}
+                     <input id="input1" type="text" maxlength="8" class="per_edit_text" oninput="writing()" >
+                {% else  %}
 
-                <input id="input1" type="text" maxlength="45" class="per_edit_text" oninput="writing()" >
+                <input id="input1" type="text" maxlength="40" class="per_edit_text" oninput="writing()" >
 
                 {% endif %}
 
