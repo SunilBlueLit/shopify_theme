@@ -315,7 +315,7 @@
             
                                 </text>
                             </svg>
-                        {% else %}
+                        {% elsif collection.title == "Bracelets" %}
 
                                 <svg style="background-image: url('{{ featured_image | img_url: product_image_size  }}');
                                 "  viewBox="0 0 480 480" id="svg1" >
@@ -356,9 +356,9 @@
             {% for collection in product.collections %}
                 {% if collection.title =="Watches" %}
                      <input id="input1" type="text" maxlength="8" class="per_edit_text" oninput="writing()" >
-                {% else  %}
+                {% elsif collection.title == "Bracelets" %}
 
-                <input id="input1" type="text" maxlength="40" class="per_edit_text" oninput="writing()" >
+                  <input id="input1" type="text" maxlength="40" class="per_edit_text" oninput="writing()" >
 
                 {% endif %}
 
