@@ -169,14 +169,7 @@
 
             }
  
-  function setImg() {
-      var img1 = document.getElementById('image1'),
-          img2 = document.getElementById('image2'),
-          offtop = ((img1.offsetHeight / 2) - (img2.offsetHeight / 2)),
-          offleft = ((img1.offsetWidth / 2) - (img2.offsetWidth / 2));
-      img2.style.top = offtop + "px";
-      img2.style.left = offleft + "px";
-  }
+ 
   // 		function for c
   
   function save_edit_pic() {
@@ -193,9 +186,6 @@
   function load() {
   
       const data_head = document.getElementById('product_title').innerHTML;
-  
-      //           alert("working");
-      //           const data_head='check';
       const c = localStorage.getItem(data_head);
       const a = document.getElementById('input1');
       const a2 = document.getElementById('text_svg');
@@ -204,8 +194,74 @@
   
      a.value=c;
      a2.innerHTML=c;
-      a3.innerHTML=c;
+     a3.innerHTML=c;
+
+    //  setting max value of input tag 
+
+     const proudct_tags = document.getElementById('p_t');
+     const product_tags_array= proudct_tags.innerHTML.split(",");
+     const input = document.getElementById('input1');
+
+     const object1 = {
+      bracelet: 40,
+      watch: 8
+      };
+
+      for (const [key, value] of Object.entries(object1)) {
+          
+       for (let i=0; i<product_tags_array.length; i++){
+
+           if(`${key}` ==  product_tags_array[i]){
+
+                  input.maxLength=`${value}`;
+
+           }
+              
+        }
+
+        
+      }
+
+    //  setting path for curve
+    const path_id=document.getElementById('curve');
+    const paths_objects={
+      top_curve:"M88,194 C209,174 391,240 428,293",
+      down_curve_2:"M69,262 C197,336 389,299 416,261",
+      down_curve:"M65,272 C176,339 380,312 431,270",
+      watch_middle:"M195,275 C212,275 248,275 275,275"
+    };
+    console.log(product_tags_array);
+    const svg_tag= document.getElementById('curve');
+    for (const [key, value] of Object.entries(paths_objects)) {
+          
+          for (let i=0; i<product_tags_array.length; i++){
+
+
+   
+              if(`${key}` ==  product_tags_array[i]){
+   
+                     svg_tag.setAttribute('d',`${value}`);
+   
+              }
+                 
+           }
+   
+           
+         }
+    // path_id.setAttribute('d')="M69,262 C197,336 389,299 416,261";
+    //for setting color of svg text;
+    const col = document.getElementById("color_svg_1");
+    const colo = document.getElementById("color_svg_2");
+    if(product_tags_array.includes("watch")){
+
+      col.style.fill="white";
+      colo.style.fill="white";
+
+    }
+    
   }
+
+ 
   
   
      
