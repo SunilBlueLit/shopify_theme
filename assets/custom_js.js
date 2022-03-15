@@ -177,7 +177,7 @@ function writing() {
             b.style.fontSize="6px";
         }
         else if(a.value.length>63){
-            alert("More Values Can't Be Entered.");
+            // alert("More Values Can't Be Entered.");
             input.maxLength=63;
         }
         c.style.fontSize=d;
@@ -225,7 +225,7 @@ function writing() {
 
         }
         else if(a.value.length>18){
-            alert("More Values Can't Be Entered.");
+            // alert("More Values Can't Be Entered.");
             input.maxLength=18;
         }
         c.style.fontSize=d;
