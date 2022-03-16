@@ -95,8 +95,8 @@ function load() {
         col.style.fill = "white";
         colo.style.fill = "white";
         input.style.fontFamily = "Compass, sans-seriff";
-        col.style.fontFamily = "Compass, sans-seriff";
-        colo.style.fontFamily = "Compass, sans-seriff";
+        col.style.fontFamily = "Compass";
+        colo.style.fontFamily = "Compass";
 
 
     }
