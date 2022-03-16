@@ -94,7 +94,7 @@ function load() {
 
         col.style.fill = "white";
         colo.style.fill = "white";
-        input.style.fontFamily = "Compasse";
+        input.style.fontFamily = "Compasse ";
         col.style.fontFamily = "Compasse";
         colo.style.fontFamily = "Compasse";
 
