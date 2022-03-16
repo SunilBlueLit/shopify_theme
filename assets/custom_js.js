@@ -6,6 +6,8 @@ var close_button = document.getElementById("close_block");
 const proudct_tags = document.getElementById('p_t');
 const product_tags_array = proudct_tags.innerHTML.split(",");
 const input = document.getElementById('input1');
+//for font 
+const text_path = document.querySelectorAll("textpath");
 
 const object1 = {
     bracelet: 40,
@@ -38,7 +40,7 @@ function load() {
     a3.style.fontSize=c2;
     a2.style.fontSize=c2;
 
-
+    
 
     //  setting max value of input tag 
 
@@ -92,6 +94,21 @@ function load() {
 
         col.style.fill = "white";
         colo.style.fill = "white";
+        input.style.fontFamily = "Compass, sans-seriff";
+        col.style.fontFamily = "Compass, sans-seriff";
+        colo.style.fontFamily = "Compass, sans-seriff";
+
+
+    }
+    else if(product_tags_array.includes("bracelet"))
+    {
+        input.style.fontFamily = "Better Grade, sans-serif";
+        col.style.fontFamily = "Better Grade, sans-serif";
+        colo.style.fontFamily = "Better Grade, sans-serif";
+        input.style.fontWeight="bolder";
+        col.style.fontWeight="bolder";
+        colo.style.fontWeight="bolder";
+
 
     }
 }

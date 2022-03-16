@@ -1,4 +1,6 @@
-  
+
+
+
 #svg1{
       
     background-size: cover; 
@@ -306,13 +308,17 @@
 
   textPath{
       font-size: 14px;
-      font-weight: 500;
-      color: white;
+     
       text-transform: uppercase;
   }
   #input1{
     text-transform: uppercase;
 
   }
-  
+
+  /* #color_svg_1,#color_svg_2{
+    font-family: 'Better Grade';
+    font-weight: 900;
+  }
+   */
   
