@@ -94,20 +94,21 @@ function load() {
 
         col.style.fill = "white";
         colo.style.fill = "white";
-        input.style.fontFamily = "Compasse ";
-        col.style.fontFamily = "Compasse";
-        colo.style.fontFamily = "Compasse";
+        input.style.fontFamily = "Better Grade";
+        col.style.fontFamily = "Better Grade";
+        colo.style.fontFamily = "Better Grade";
+        // input.style.fontWeight="bold";
+        // col.style.fontWeight="bold";
+        // colo.style.fontWeight="bold";
 
 
     }
     else if(product_tags_array.includes("bracelet"))
     {
-        input.style.fontFamily = "Better Grade, sans-serif";
-        col.style.fontFamily = "Better Grade, sans-serif";
-        colo.style.fontFamily = "Better Grade, sans-serif";
-        input.style.fontWeight="bolder";
-        col.style.fontWeight="bolder";
-        colo.style.fontWeight="bolder";
+      
+        input.style.fontFamily = "Compasse ";
+        col.style.fontFamily = "Compasse";
+        colo.style.fontFamily = "Compasse";
 
 
     }
