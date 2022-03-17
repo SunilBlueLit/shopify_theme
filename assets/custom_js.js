@@ -114,26 +114,26 @@ function load() {
     }
 }
 
-function resize_to_fit() {
-    let color_svg_2 = document.getElementById("color_svg_2");
-    let b = document.getElementById("text_svg");
-    let c = document.getElementById("text_svg2");
+// function resize_to_fit() {
+//     let color_svg_2 = document.getElementById("color_svg_2");
+//     let b = document.getElementById("text_svg");
+//     let c = document.getElementById("text_svg2");
 
    
 
-    if (b.getBBox().width >= 355) {
+//     if (b.getBBox().width >= 355) {
 
-        let fontSizee = window.getComputedStyle(b).fontSize;
-        b.style.fontSize = (parseFloat(fontSizee) - 1) + 'px';
+//         let fontSizee = window.getComputedStyle(b).fontSize;
+//         b.style.fontSize = (parseFloat(fontSizee) - 1) + 'px';
 
-    }
-    else{
-        resize_to_fit();
-    }
+//     }
+//     else{
+//         resize_to_fit();
+//     }
    
     
 
-}
+// }
 
 
 function writing() {
@@ -202,51 +202,36 @@ function writing() {
 
     }
     else{
-        if(a.value.length <=9){
-            b.style.fontSize="14px";
-        }
-        else if(a.value.length>9 && a.value.length<=10)
-        {
-            b.style.fontSize="13px";
-        }
-        else if(a.value.length>10 && a.value.length<=11){
-            b.style.fontSize="12px";
+
+        b.style.letterSpacing="1.5px";
+        c.style.letterSpacing="1.5px";
+        if(a.value.length <=11){
+            b.style.fontSize="24px";
         }
         else if(a.value.length>11 && a.value.length<=12)
         {
-            b.style.fontSize="11px";
-
+            b.style.fontSize="21px";
         }
         else if(a.value.length>12 && a.value.length<=13)
         {
-            b.style.fontSize="10px";
-
+            b.style.fontSize="19px";
         }
         else if(a.value.length>13 && a.value.length<=14)
         {
-            b.style.fontSize="9px";
-
+            b.style.fontSize="16px";
         }
-        else if(a.value.length>14 && a.value.length<=15)
+        else if(a.value.length>14 && a.value.length<=16)
         {
-            b.style.fontSize="8px";
-
+            b.style.fontSize="14px";
         }
-        else if(a.value.length>15 && a.value.length<=16)
+        else if (a.value.length>16)
         {
-            b.style.fontSize="7px";
+            input.maxLength=16;
+   
+        }
 
-        }
-        else if(a.value.length>16 && a.value.length<=18)
-        {
-            b.style.fontSize="6px";
 
-        }
-        else if(a.value.length>18){
-            // alert("More Values Can't Be Entered.");
-            input.maxLength=18;
-        }
-        c.style.fontSize=d;
+            c.style.fontSize=d;
         
     }
     
