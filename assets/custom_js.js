@@ -28,7 +28,7 @@ function load() {
     const data_head_2 = document.getElementById('product_title').innerHTML;
 
     const c = localStorage.getItem(data_head);
-    const c2 = localStorage.getItem(data_head_2+" f");
+    const c2 = localStorage.getItem(data_head_2+" L");
     const a = document.getElementById('input1');
     const a2 = document.getElementById('text_svg');
     const a3 = document.getElementById('text_svg2')
@@ -37,8 +37,9 @@ function load() {
     a.value = c;
     a2.innerHTML = c;
     a3.innerHTML = c;
-    a3.style.fontSize=c2;
-    a2.style.fontSize=c2;
+    a3.style.letterSpacing=c2;
+    a2.style.letterSpacing=c2;
+   
 
     
 
@@ -105,7 +106,13 @@ function load() {
     }
     else if(product_tags_array.includes("bracelet"))
     {
-      
+        col.style.fill="#323232";
+        // col.style.fontWeight="590";
+        col.style.textShadow="0px 1px 0px  ";
+        colo.style.fill="#323232";
+        // colo.style.fontWeight="590";
+        colo.style.textShadow="0px 1px 0px  ";
+        
         input.style.fontFamily = "Compasse ";
         col.style.fontFamily = "Compasse";
         colo.style.fontFamily = "Compasse";
@@ -114,23 +121,6 @@ function load() {
     }
 }
 
-// function resize_to_fit() {
-//     let color_svg_2 = document.getElementById("color_svg_2");
-//     let b = document.getElementById("text_svg");
-//     let c = document.getElementById("text_svg2");
-
-   
-
-//     if (b.getBBox().width >= 355) {
-
-//         let fontSizee = window.getComputedStyle(b).fontSize;
-//         b.style.fontSize = (parseFloat(fontSizee) - 1) + 'px';
-
-//     }
-//     else{
-//         resize_to_fit();
-//     }
-   
     
 
 // }
@@ -140,7 +130,7 @@ function writing() {
 
     let a = document.getElementById('input1');
     let c = document.getElementById("text_svg2");
-    let d = window.getComputedStyle(document.getElementById("text_svg")).fontSize;
+    let d = window.getComputedStyle(document.getElementById("text_svg")).letterSpacing;
 
     let b = document.getElementById("text_svg");
 
@@ -153,52 +143,75 @@ function writing() {
     
     // resize_to_fit();
     if(product_tags_array.includes('bracelet')){
-        if(a.value.length <=40){
-            b.style.fontSize="14px";
+
+        b.style.letterSpacing="3px";
+        c.style.letterSpacing="3px";
+        b.style.fontSize="14px";
+        c.style.fontSize="14px";
+        if(a.value.length<=34){
+            b.style.letterSpacing="3px";
         }
-       else if(a.value.length>40 && a.value.length<=43){
-            b.style.fontSize="13px";
-        }
-        else if(a.value.length<=40)
+        else if(a.value.length>34 && a.value.length<=36)
         {
-            b.style.fontSize="14px";
+            b.style.letterSpacing="2px";
         }
+        else if(a.value.length>36 && a.value.length<=40)
+        {
+            b.style.letterSpacing="1px";
+        }
+        else if(a.value.length>40 && a.value.length<=48)
+        {
+            b.style.letterSpacing="0px";
+            input.maxLength=48;
+        }
+
+    //     if(a.value.length <=40){
+    //         b.style.fontSize="14px";
+    //     }
+    //    else if(a.value.length>40 && a.value.length<=43){
+    //         b.style.fontSize="13px";
+    //     }
+    //     else if(a.value.length<=40)
+    //     {
+    //         b.style.fontSize="14px";
+    //     }
         
-        else if (a.value.length <=43){
-            b.style.fontSize="13px";
-        }
-        else if(a.value.length >43 && a.value.length <=46){
-            b.style.fontSize="12px";
-        }
-        else if(a.value.length>47 && a.value.length <=50)
-        {
-            b.style.fontSize="11px";
-        }
-        else if( a.value.length>50 && a.value.length <=53 )
-        {
-            b.style.fontSize="10px";
-        }
-        else if( a.value.length>53 && a.value.length <=54 )
-        {
-            b.style.fontSize="9px";
-        }
-        else if( a.value.length>54 && a.value.length <=57 )
-        {
-            b.style.fontSize="8px";
-        }
-        else if( a.value.length>57 && a.value.length <=60 )
-        {
-            b.style.fontSize="7px";
-        }
-        else if( a.value.length>60 && a.value.length <=63 )
-        {
-            b.style.fontSize="6px";
-        }
-        else if(a.value.length>63){
-            // alert("More Values Can't Be Entered.");
-            input.maxLength=63;
-        }
-        c.style.fontSize=d;
+    //     else if (a.value.length <=43){
+    //         b.style.fontSize="13px";
+    //     }
+    //     else if(a.value.length >43 && a.value.length <=46){
+    //         b.style.fontSize="12px";
+    //     }
+    //     else if(a.value.length>47 && a.value.length <=50)
+    //     {
+    //         b.style.fontSize="11px";
+    //     }
+    //     else if( a.value.length>50 && a.value.length <=53 )
+    //     {
+    //         b.style.fontSize="10px";
+    //     }
+    //     else if( a.value.length>53 && a.value.length <=54 )
+    //     {
+    //         b.style.fontSize="9px";
+    //     }
+    //     else if( a.value.length>54 && a.value.length <=57 )
+    //     {
+    //         b.style.fontSize="8px";
+    //     }
+    //     else if( a.value.length>57 && a.value.length <=60 )
+    //     {
+    //         b.style.fontSize="7px";
+    //     }
+    //     else if( a.value.length>60 && a.value.length <=63 )
+    //     {
+    //         b.style.fontSize="6px";
+    //     }
+    //     else if(a.value.length>63){
+    //         // alert("More Values Can't Be Entered.");
+    //         input.maxLength=63;
+    //     }
+    
+        c.style.letterSpacing=d;
 
     }
     else{
@@ -245,14 +258,14 @@ function writing() {
 function save_edit_pic() {
 
     const data = document.getElementById('input1').value;
-    const font_size=window.getComputedStyle(document.getElementById("text_svg")).fontSize;
+    const letter_spacing=window.getComputedStyle(document.getElementById("text_svg")).letterSpacing;
     const data_head = document.getElementById('product_title').innerHTML;
     const data_head_2 = document.getElementById('product_title').innerHTML;
 
     const cookie = document.cookie = "" + data_head + "=" + data + "; expires=Tues, 20 Dec 2022 12:00:00 UTC";
 
     localStorage.setItem(data_head, data,);
-    localStorage.setItem(data_head_2+" f",font_size);
+    localStorage.setItem(data_head_2+" L",letter_spacing);
     mod_box.style.display = "none"
 
 }
