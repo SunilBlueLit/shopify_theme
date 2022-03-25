@@ -31,13 +31,12 @@ function load() {
     const c2 = localStorage.getItem(data_head_2+" L");
     const a = document.getElementById('input1');
     const a2 = document.getElementById('text_svg');
-    const a3 = document.getElementById('text_svg2')
+  
 
 
     a.value = c;
     a2.innerHTML = c;
-    a3.innerHTML = c;
-    a3.style.letterSpacing=c2;
+   
     a2.style.letterSpacing=c2;
    
 
@@ -89,14 +88,14 @@ function load() {
     }
     // path_id.setAttribute('d')="M69,262 C197,336 389,299 416,261";
     //for setting color of svg text;
-    const col = document.getElementById("color_svg_1");
+    
     const colo = document.getElementById("color_svg_2");
     if (product_tags_array.includes("watch")) {
 
-        col.style.fill = "white";
+      
         colo.style.fill = "white";
         input.style.fontFamily = "Better Grade";
-        col.style.fontFamily = "Better Grade";
+      
         colo.style.fontFamily = "Better Grade";
         // input.style.fontWeight="bold";
         // col.style.fontWeight="bold";
@@ -106,15 +105,15 @@ function load() {
     }
     else if(product_tags_array.includes("bracelet"))
     {
-        col.style.fill="#323232";
+       
         // col.style.fontWeight="590";
-        col.style.textShadow="0px 1px 0px  ";
+      
         colo.style.fill="#323232";
         // colo.style.fontWeight="590";
         colo.style.textShadow="0px 1px 0px  ";
         
         input.style.fontFamily = "Compasse ";
-        col.style.fontFamily = "Compasse";
+       
         colo.style.fontFamily = "Compasse";
 
 
@@ -129,7 +128,7 @@ function load() {
 function writing() {
 
     let a = document.getElementById('input1');
-    let c = document.getElementById("text_svg2");
+   
     let d = window.getComputedStyle(document.getElementById("text_svg")).letterSpacing;
 
     let b = document.getElementById("text_svg");
@@ -137,7 +136,6 @@ function writing() {
 
 
     b.innerHTML = a.value;
-    c.innerHTML = a.value;
 
 
     
@@ -145,9 +143,9 @@ function writing() {
     if(product_tags_array.includes('bracelet')){
 
         b.style.letterSpacing="3px";
-        c.style.letterSpacing="3px";
+      
         b.style.fontSize="14px";
-        c.style.fontSize="14px";
+      
         if(a.value.length<=34){
             b.style.letterSpacing="3px";
         }
@@ -165,59 +163,15 @@ function writing() {
             input.maxLength=48;
         }
 
-    //     if(a.value.length <=40){
-    //         b.style.fontSize="14px";
-    //     }
-    //    else if(a.value.length>40 && a.value.length<=43){
-    //         b.style.fontSize="13px";
-    //     }
-    //     else if(a.value.length<=40)
-    //     {
-    //         b.style.fontSize="14px";
-    //     }
-        
-    //     else if (a.value.length <=43){
-    //         b.style.fontSize="13px";
-    //     }
-    //     else if(a.value.length >43 && a.value.length <=46){
-    //         b.style.fontSize="12px";
-    //     }
-    //     else if(a.value.length>47 && a.value.length <=50)
-    //     {
-    //         b.style.fontSize="11px";
-    //     }
-    //     else if( a.value.length>50 && a.value.length <=53 )
-    //     {
-    //         b.style.fontSize="10px";
-    //     }
-    //     else if( a.value.length>53 && a.value.length <=54 )
-    //     {
-    //         b.style.fontSize="9px";
-    //     }
-    //     else if( a.value.length>54 && a.value.length <=57 )
-    //     {
-    //         b.style.fontSize="8px";
-    //     }
-    //     else if( a.value.length>57 && a.value.length <=60 )
-    //     {
-    //         b.style.fontSize="7px";
-    //     }
-    //     else if( a.value.length>60 && a.value.length <=63 )
-    //     {
-    //         b.style.fontSize="6px";
-    //     }
-    //     else if(a.value.length>63){
-    //         // alert("More Values Can't Be Entered.");
-    //         input.maxLength=63;
-    //     }
+  
     
-        c.style.letterSpacing=d;
+       
 
     }
     else{
 
         b.style.letterSpacing="1.5px";
-        c.style.letterSpacing="1.5px";
+       
         if(a.value.length <=11){
             b.style.fontSize="24px";
         }
@@ -244,7 +198,6 @@ function writing() {
         }
 
 
-            c.style.fontSize=d;
         
     }
     

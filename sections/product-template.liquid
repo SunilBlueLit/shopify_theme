@@ -37,19 +37,7 @@
                   alt="{{ image.alt | escape }}">
                  
               </a>
-                    <svg  style="background-color: transparent;
-                    position: absolute;
-                    top: 0;
-                    left: 0;"
-                    viewBox="0 0 480 480"   >
-                      <path id="curve" fill="transparent"  d="M88,194 C209,174 391,240 428,293" />
-                      <text id="color_svg_1" >
-                          <textPath text-anchor="middle" startOffset="50%" id="text_svg2" xlink:href="#curve">
-                              
-                          </textPath>
-
-                      </text>
-                      </svg>
+                
               
             </div>
           {%- endfor -%}
@@ -250,7 +238,7 @@
     
                               <svg style="background-image: url('{{ featured_image | img_url: product_image_size  }}');
                               "  viewBox="0 0 480 480" id="svg1" >
-                                
+                              <path id="curve" fill="transparent" d="M88,194 C209,174 391,240 428,293" />
                                 <text id="color_svg_2" >
                                     <textPath text-anchor="middle" startOffset="50%" id="text_svg" xlink:href="#curve">
                                         
