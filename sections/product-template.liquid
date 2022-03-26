@@ -92,7 +92,7 @@
 
           <h1 itemprop="name" id="product_title" class="product-single__title">{{ product.title }} </h1>
           <h1 id="p_t" style="display: none;">{{ product.tags | join:','}}</h1>
-         
+        
 
          
         
@@ -236,16 +236,28 @@
         <div class=per_block_left>
   <div id="container">
     
-                              <svg style="background-image: url('{{ featured_image | img_url: product_image_size  }}');
-                              "  viewBox="0 0 480 480" id="svg1" >
-                              <path id="curve" fill="transparent" d="M88,194 C209,174 391,240 428,293" />
-                                <text id="color_svg_2" >
-                                    <textPath text-anchor="middle" startOffset="50%" id="text_svg" xlink:href="#curve">
-                                        
-                                    </textPath>
+      {% assign images = product.media | where: "media_type", "image" %}
+          {% for image in images %}
+         
+             {% if image.alt == "preview_image"%}
 
-                                </text>
-                            </svg>
+                
+                 <svg style="background-image: url('{{ image.src | product_img_url:"480x480" }}');
+                 "  viewBox="0 0 480 480" id="svg1" >
+                 <path id="curve" fill="transparent" d="M88,194 C209,174 391,240 428,293" />
+                   <text id="color_svg_2" >
+                       <textPath text-anchor="middle" startOffset="50%" id="text_svg" xlink:href="#curve">
+                           
+                       </textPath>
+
+                   </text>
+               </svg>
+                
+               
+             {% endif %}
+          {% endfor %}
+                            
+                            
 
                 
          
