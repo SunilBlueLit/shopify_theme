@@ -6,6 +6,7 @@ var close_button = document.getElementById("close_block");
 const proudct_tags = document.getElementById('p_t');
 const product_tags_array = proudct_tags.innerHTML.split(",");
 const input = document.getElementById('input1');
+const title = document.getElementById('product_title').innerHTML.trimEnd();
 //for font 
 const text_path = document.querySelectorAll("textpath");
 
@@ -23,21 +24,22 @@ close_button.onclick = function () {
 
 
 function load() {
-
-    const data_head = document.getElementById('product_title').innerHTML;
-    const data_head_2 = document.getElementById('product_title').innerHTML;
-
-    const c = localStorage.getItem(data_head);
-    const c2 = localStorage.getItem(data_head_2+" L");
-    const a = document.getElementById('input1');
+   
+    
+    
     const a2 = document.getElementById('text_svg');
   
+    let x = getCookie(title);
+    let y = getCookie(title+" letterspace")
+    if(x!=""){
+        input.value = x;
+        a2.innerHTML = x;
+        a2.style.letterSpacing=y;
+    }
 
-
-    a.value = c;
-    a2.innerHTML = c;
    
-    a2.style.letterSpacing=c2;
+   
+    
    
 
     
@@ -97,9 +99,12 @@ function load() {
         input.style.fontFamily = "Better Grade";
       
         colo.style.fontFamily = "Better Grade";
+        colo.style.textTransform="capitilize";
+        input.style.textTransform="capitilize";
         // input.style.fontWeight="bold";
         // col.style.fontWeight="bold";
         // colo.style.fontWeight="bold";
+        input.maxLength=16;
 
 
     }
@@ -109,13 +114,16 @@ function load() {
         // col.style.fontWeight="590";
       
         colo.style.fill="#323232";
-        // colo.style.fontWeight="590";
-        colo.style.textShadow="0px 1px 0px  ";
+        colo.style.textTransform="uppercase";
+        // colo.style.fontWeight="600";
+        colo.style.textShadow="0px 0.8px 0px  ";
         
         input.style.fontFamily = "Compasse ";
+        input.style.textTransform="uppercase";
        
         colo.style.fontFamily = "Compasse";
 
+        input.maxLength=42;
 
     }
 }
@@ -142,25 +150,32 @@ function writing() {
     // resize_to_fit();
     if(product_tags_array.includes('bracelet')){
 
-        b.style.letterSpacing="3px";
-      
+        // b.style.letterSpacing="3px";
+        let inputlength=input.value.length;
         b.style.fontSize="14px";
+        input.style.textTransform="uppercase";
+        b.style.textTransform="uppercase";
       
-        if(a.value.length<=34){
+        if(inputlength<31){
             b.style.letterSpacing="3px";
+           console.log("working");
         }
-        else if(a.value.length>34 && a.value.length<=36)
+        else if(inputlength>31 && inputlength<=34)
         {
             b.style.letterSpacing="2px";
         }
-        else if(a.value.length>36 && a.value.length<=40)
+        else if(inputlength>34 && inputlength<=38)
         {
             b.style.letterSpacing="1px";
         }
-        else if(a.value.length>40 && a.value.length<=48)
+        else if(inputlength>38 && inputlength<=42 )
         {
             b.style.letterSpacing="0px";
-            input.maxLength=48;
+            a.maxLength=42;
+        }
+        else if(inputlength>42){
+            a.maxLength=42;
+            b.style.letterSpacing="0px";
         }
 
   
@@ -210,15 +225,27 @@ function writing() {
 
 function save_edit_pic() {
 
-    const data = document.getElementById('input1').value;
+    const data = input.value;
     const letter_spacing=window.getComputedStyle(document.getElementById("text_svg")).letterSpacing;
-    const data_head = document.getElementById('product_title').innerHTML;
-    const data_head_2 = document.getElementById('product_title').innerHTML;
+   
+    let x = document.cookie = title+"=" + input.value + ";";
+    document.cookie=title+" letterspace="+letter_spacing+";";
+    
+    console.log(x);
 
-    const cookie = document.cookie = "" + data_head + "=" + data + "; expires=Tues, 20 Dec 2022 12:00:00 UTC";
 
-    localStorage.setItem(data_head, data,);
-    localStorage.setItem(data_head_2+" L",letter_spacing);
+   
     mod_box.style.display = "none"
 
+}
+
+function getCookie(user) {
+    var cookieArr = document.cookie.split(";");
+    for (var i = 0; i < cookieArr.length; i++) {
+        var cookiePair = cookieArr[i].split("=");
+        if (user == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+        }
+    }
+    return null;
 }
