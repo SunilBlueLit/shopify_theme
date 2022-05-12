@@ -194,6 +194,7 @@ function save_edit_pic() {
     mod_box.style.display = "none"
 
 }
+
 function save_edit_pic() {
 
     mod_box.style.display = "none"
